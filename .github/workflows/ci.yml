@@ -24,9 +24,17 @@ jobs:
         run: mvn -v
 
       - name: Build with Maven
-        run: mvn -B package
+        run: mvn -B clean package
 
       - name: Run tests with Maven Surefire
         run: mvn -B test
+
+      # Ensure test results are uploaded for debugging purposes
+      - name: Archive test reports
+        if: always() # Ensures this step runs even if tests fail
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: target/surefire-reports/
 
       # Optional: Run code analysis with Maven Checkstyle
