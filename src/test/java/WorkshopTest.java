@@ -18,6 +18,22 @@ public class WorkshopTest {
 
     private final Workshop tester = new Workshop();
 
+    //Test para el area del circulo
+    public void testAreaCirculo() {
+        assertEquals(Math.PI, tester.areaCirculo(1), 0.001);
+        assertEquals((Math.PI*10), tester.areaCirculo(10), 0.001);;
+        assertEquals(0, tester.areaCirculo(0), 0.001);
+    }
+    public void testZoodiac() {
+        assertEquals("Aries", tester.zoodiac(9,4));
+        assertNotEquals("Pisces",tester.zoodiac(30,2));
+        assertEquals("Invalid Date", tester.zoodiac(31,2));
+        assertEquals("Gemini", tester.zoodiac(14,6));
+        assertEquals("Cancer", tester.zoodiac(22,6));
+        assertNotEquals("Leo",tester.zoodiac(30,8));
+    }
+
+
     // Test para el método sumarDosNumeros
     @Test
     public void testSumarDosNumeros() {
@@ -225,6 +241,7 @@ public class WorkshopTest {
         assertFalse(tester.esPalindromo("hola"));
         // Test 3: Cadena vacía (considerada palíndroma)
         assertTrue(tester.esPalindromo(""));
+        assertTrue(tester.esPalindromo("Anita lava la tina"));
     }
 
     // Test para el método contarPalabras

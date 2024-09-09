@@ -148,14 +148,14 @@ public class Workshop {
     }
 
     // Método que convierte una cadena a mayúsculas
-    public String convertirMayusculas(String cadena) {
+    public String convertirAMayusculas(String cadena) {
         // TODO: Implementar el método para convertir una cadena a mayúsculas.
         // Ejemplo: Si cadena = "hello", el resultado debería ser "HELLO".
         return "";
     }
 
     // Método que convierte una cadena a minúsculas
-    public String convertirMinusculas(String cadena) {
+    public String convertirAMinusculas(String cadena) {
         // TODO: Implementar el método para convertir una cadena a minúsculas.
         // Ejemplo: Si cadena = "HELLO", el resultado debería ser "hello".
         return "";
@@ -218,14 +218,17 @@ public class Workshop {
         return "";
     }
 
-    public String convertirAMayusculas(String holaMundo) {
+    public double areaCirculo(double radio)
+    {
+        return 0.0;
+    }
 
+    public String zoodiac(int day, int month)
+    {
         return "";
     }
 
-    public String convertirAMinusculas(String holaMundo) {
-        return "";
 
-    }
+
 }
 
