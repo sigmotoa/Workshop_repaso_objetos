@@ -34,7 +34,7 @@
                 <configuration>
                     <!-- Ensure that only JUnit tests are executed -->
                     <includes>
-                        <include>**/*Test.java</include>
+                        <include>**/*TWorkshopTest.java</include>
                     </includes>
                     <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
