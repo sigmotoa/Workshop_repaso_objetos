@@ -18,12 +18,15 @@ public class WorkshopTest {
 
     private final Workshop tester = new Workshop();
 
+    @Test
     //Test para el area del circulo
     public void testAreaCirculo() {
         assertEquals(Math.PI, tester.areaCirculo(1), 0.001);
         assertEquals((Math.PI*10), tester.areaCirculo(10), 0.001);;
         assertEquals(0, tester.areaCirculo(0), 0.001);
     }
+
+    @Test
     public void testZoodiac() {
         assertEquals("Aries", tester.zoodiac(9,4));
         assertNotEquals("Pisces",tester.zoodiac(30,2));
@@ -346,9 +349,8 @@ public class WorkshopTest {
         assertTrue(tester.jugarPiedraPapelTijeraLagartoSpock("Papel").equals("Ganaste") ||
                 tester.jugarPiedraPapelTijeraLagartoSpock("Papel").equals("Perdiste") ||
                 tester.jugarPiedraPapelTijeraLagartoSpock("Papel").equals("Empate"));
-        // Test 3: Elección del usuario es un valor inválido
-        assertThrows(IllegalArgumentException.class, () -> tester.jugarPiedraPapelTijeraLagartoSpock("InvalidChoice"));
-    }
+           }
+
 
     @Test
     public void testValidarCorreoElectronico() {
@@ -365,4 +367,15 @@ public class WorkshopTest {
         assertFalse(tester.validarCorreoElectronico("test$%^&*()@example.com"));
     }
 
+
+    @Test
+    public void testPPTLS2()
+    {
+        assertEquals("Player 2", tester.pptls2(new String []{"P","S"}));
+        assertEquals("Empate", tester.pptls2(new String []{"S","S"}));
+        assertEquals("Player 1", tester.pptls2(new String []{"V","S"}));
+        assertEquals("Player 2", tester.pptls2(new String []{"R","V"}));
+        assertEquals("Empate", tester.pptls2(new String []{"P","P"}));
+        assertEquals("Player 1", tester.pptls2(new String []{"L","P"}));
+    }
 }

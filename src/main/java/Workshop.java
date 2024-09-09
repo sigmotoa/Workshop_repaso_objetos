@@ -211,23 +211,44 @@ public class Workshop {
         // - Piedra vence a Tijera y Lagarto
         // - Papel vence a Piedra y Spock
         // - Tijera vence a Papel y Lagarto
-        // - Lagarto vence a Spock y Piedra
+        // - Lagarto vence a Spock y Papel
         // - Spock vence a Tijera y Piedra
+
+
         // El método debe retornar un mensaje indicando el resultado del juego.
         // Ejemplo: Si la eleccionUsuario es "Piedra", el resultado podría ser "Ganaste" o "Perdiste" dependiendo de la elección de la computadora.
         return "";
     }
 
-    public double areaCirculo(double radio)
-    {
-        return 0.0;
-    }
-
-    public String zoodiac(int day, int month)
-    {
+    public String pptls2(String game[]) {
+        //Retornar player ganador o empate
+            /*
+            Rock = R
+            Paper = P
+            Scissors = S
+            Lizard = L
+            Spock = V
+        Scissors cuts Paper
+Paper covers Rock
+Rock crushes Lizard
+Lizard poisons Spock
+Spock smashes Scissors
+Scissors decapitates Lizard
+Lizard eats Paper
+Paper disproves Spock
+Spock vaporizes Rock
+Rock crushes Scissors
+         */
         return "";
     }
 
+    public double areaCirculo(double radio) {
+        return 0.0;
+    }
+
+    public String zoodiac(int day, int month) {
+        return "";
+    }
 
 
 }

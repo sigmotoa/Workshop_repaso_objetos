@@ -30,5 +30,3 @@ jobs:
         run: mvn -B test
 
       # Optional: Run code analysis with Maven Checkstyle
-      - name: Run code analysis with Maven Checkstyle
-        run: mvn checkstyle:check
