@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -21,11 +20,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Check Maven version
+        run: mvn -v
+
       - name: Build with Maven
-        run: mvn -B package --file Workshop_repaso/pom.xml
+        run: mvn -B package
 
       - name: Run tests with Maven Surefire
-        run: mvn -B test --file Workshop_repaso/pom.xml
+        run: mvn -B test
 
+      # Optional: Run code analysis with Maven Checkstyle
       - name: Run code analysis with Maven Checkstyle
-        run: mvn checkstyle:check --file Workshop_repaso/pom.xml
+        run: mvn checkstyle:check
