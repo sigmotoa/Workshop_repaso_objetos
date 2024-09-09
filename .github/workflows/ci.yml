@@ -7,53 +7,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Cache Maven dependencies to speed up the build
-      - name: Cache Maven dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Check Maven version
-        run: mvn -v
-
-      - name: Build with Maven
-        run: mvn -B clean package
-
-      - name: Run tests with Maven Surefire
-        run: mvn -B test
-
-      # Ensure test results are uploaded for debugging purposes
-      - name: Archive test reports
-        if: always() # Ensures this step runs even if tests fail
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: target/surefire-reports/
-
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Cache Maven dependencies for test job as well
       - name: Cache Maven dependencies
         uses: actions/cache@v3
         with:
@@ -69,13 +29,10 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and Test
-        run: mvn clean test
+        run: mvn -B clean package test
 
       - name: Publish Test Report
-        uses: dorny/test-reporter@v1
-        if: always()  # Ensure this step runs even if tests fail
+        uses: mikepenz/action-junit-report@v3
+        if: always()
         with:
-          name: Test Report
-          path: target/surefire-reports/TEST-*.xml
-          reporter: junit
-          fail-on-error: false
+          report_paths: '**/surefire-reports/TEST-*.xml'
